@@ -1,3 +1,61 @@
 .App {
-  text-align: center;
+  height:100vh;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas: 
+  'acc header'
+  'navbar main-content';
+}
+
+.AccountButton-container {
+  border: 5px solid green;
+  grid-area: acc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Header-container {
+  border: 5px solid purple;
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NavBar-container {
+  border: 5px solid teal;
+  grid-area: navbar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainContent-container {
+  border: 5px solid yellow;
+  grid-area: main-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+
+@media screen and (max-width: 600px) {
+  .App {
+    height:100vh;
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    grid-template-rows: 12.5vh 1fr 9vh;
+    grid-template-areas: 
+    'acc header'
+    'main-content main-content'
+    'navbar navbar'
+    ;
+  }
 }
