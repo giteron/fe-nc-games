@@ -51,6 +51,13 @@
   width: 90%;
   border-radius: 4px;
 }
+.NavBar-container button:hover {
+  background-color: grey;
+}
+
+.NavBar-container button:active {
+  background-color: lightgrey;
+}
 
 .MainContent-container {
   /* border: 5px solid yellow; */
