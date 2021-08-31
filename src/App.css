@@ -9,7 +9,9 @@
 }
 
 .AccountButton-container {
-  border: 5px solid green;
+  /* border: 5px solid green; */
+  background-color: red;
+  color: white;
   grid-area: acc;
   display: flex;
   justify-content: center;
@@ -17,23 +19,42 @@
 }
 
 .Header-container {
-  border: 5px solid purple;
+  /* border: 5px solid purple; */
+  background-color: red;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
   grid-area: header;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
 .NavBar-container {
-  border: 5px solid teal;
+  /* border: 5px solid teal; */
+  background-color: lightgrey;
   grid-area: navbar;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  /* box-shadow: 0px 0px 10px grey; */
+}
+.NavBar-container button {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: 90%;
+  border-radius: 4px;
 }
 
 .MainContent-container {
-  border: 5px solid yellow;
+  /* border: 5px solid yellow; */
+  background-color: whitesmoke;
   grid-area: main-content;
   display: flex;
   justify-content: center;
@@ -46,16 +67,27 @@ p {
 }
 
 
+
 @media screen and (max-width: 600px) {
   .App {
     height:100vh;
     display: grid;
     grid-template-columns: 1fr 3.5fr;
-    grid-template-rows: 12.5vh 1fr 9vh;
+    grid-template-rows: 12.5vh 1fr 54px;
     grid-template-areas: 
     'acc header'
     'main-content main-content'
-    'navbar navbar'
-    ;
+    'navbar navbar';
+  }
+  
+  .NavBar-container{
+    padding: 8px;
+  }
+
+  .NavBar-container button {
+    /* float: none; */
+    width: 18%;
+    margin: 0px 0.25rem 0px 0.25rem;
+    padding: 10px 0.25rem 10px 0.25rem;
   }
 }

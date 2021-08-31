@@ -1,7 +1,12 @@
 const NavBar = () => {
     return (
         <div className="NavBar-container">
-            <p>NavBar</p>
+            <button>Home</button>
+            <button>Create</button>
+            <button>Reviews</button>
+            <button>Categories</button>
+            <button>Users</button>
+            
         </div>
     );
 };
