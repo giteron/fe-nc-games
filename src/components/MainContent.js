@@ -3,8 +3,8 @@ const MainContent = (props) => {
 
     return (
         <div className="MainContent-container">
-            <p>MainContent</p>
-            <p>{children}</p>
+            <p className="MainContent-content">MainContent</p>
+            {children}
         </div>
     );
 };

@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+
 .App {
   height:100vh;
   display: grid;
@@ -59,13 +64,44 @@
   background-color: lightgrey;
 }
 
+/* .MainContent-container {
+  border: 5px solid yellow;
+  background-color: whitesmoke;
+  grid-area: main-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+} */
+
 .MainContent-container {
   /* border: 5px solid yellow; */
   background-color: whitesmoke;
   grid-area: main-content;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-areas: '. content sidebar .';
+  grid-template-columns: 0.5fr 1.3fr 1fr 0.5fr ;
   align-items: center;
+}
+
+.MainContent-content {
+  border: 5px solid lime;
+  grid-area: content;
+  min-width: 400px;
+  height: 100%;
+  text-align: center;
+  padding: 5%;
+}
+
+.sidebar {
+  border: 5px solid blue;
+  grid-area: sidebar;
+  min-width: 250px;
+  max-width: 450px;
+  height: 100%;
+  text-align: center;
+  padding: 5%;
 }
 
 p {
