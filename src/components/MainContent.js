@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Users from '../Users';
 
 const MainContent = () => {
 
+    const [usersList, setUsersList] = useState([]);
+
     return (
         <div className="MainContent-container">
-            <p className="MainContent-content">MainContent</p>
+            {/* <p className="MainContent-content">MainContent</p> */}
             <Switch>
                 <Route exact path="/">
                     <p className="sidebar">This is the home page</p>
@@ -19,6 +23,7 @@ const MainContent = () => {
                     <p className="sidebar">This will show all categories</p>
                 </Route>
                 <Route exact path="/users">
+                    <Users usersList={usersList} setUsersList={setUsersList}/>
                     <p className="sidebar">This will display all users</p>
                 </Route>
             </Switch>

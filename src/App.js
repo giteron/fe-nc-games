@@ -8,16 +8,14 @@ import NavBar from './components/NavBar';
 
 function App() {
 
-  // const [usersList, setUsersList] = useState([]);
-
   return (
     <BrowserRouter>
-    <div className="App">
-      <Header />
-      <NavBar />
-      <AccountButton />
-      <MainContent />
-    </div>
+      <div className="App">
+        <Header />
+        <NavBar />
+        <AccountButton />
+        <MainContent />
+      </div>
     </BrowserRouter>
   );
 }
