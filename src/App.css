@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .App {
   height:100vh;
   display: grid;
@@ -102,11 +107,11 @@
   grid-template-areas: '. content sidebar .';
   grid-template-columns: 0.5fr 1.3fr 1fr 0.5fr ;
   align-items: center;
-  /* box-shadow: rgba(0, 0, 0, 0.25) inset 1px 0px 5px; */
+  box-shadow: rgba(0, 0, 0, 0.25) inset 1px 0px 5px;
 }
 
 .MainContent-content {
-  border: 5px solid lime;
+  /* border: 5px solid lime; */
   grid-area: content;
   min-width: 400px;
   height: 100%;
@@ -115,7 +120,7 @@
 }
 
 .sidebar {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   grid-area: sidebar;
   min-width: 250px;
   max-width: 450px;
@@ -136,10 +141,49 @@ ul {
 li {
   padding: 20px;
   background-color: white;
-  /* margin-bottom: 10px; */
   margin: 0px 2.5% 10px 2.5%;
   box-shadow: rgba(0, 0, 0, 0.25) 1px 0px 5px;
   min-height: 100px;
+  /* height: 15vw; */
+  font-size: 0.85rem;
+  color: rgb(114, 114, 114);
+}
+
+.reviews-card__img {
+  grid-area: img;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  justify-self: center;
+}
+
+.reviews-card h3 {
+  grid-area: title;
+  text-align: left;
+  margin-left: 10%;
+  color: black;
+}
+
+.reviews-card {
+  display: grid;
+  grid-template-areas: 'img title title' 'meta . votes' 'date . votes';
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 20% 1fr 1fr;
+}
+
+.reviews-card__date {
+  grid-area: date;
+}
+
+.reviews-card__votes {
+  grid-area: votes;
+  font-size: 1rem;
+  text-align: end;
+}
+
+.votesCount {
+  color: black;
+  font-size: 2rem;
 }
 
 

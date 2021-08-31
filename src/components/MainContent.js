@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Users from '../Users';
+import Reviews from './Reviews';
 
 const MainContent = () => {
 
     const [usersList, setUsersList] = useState([]);
+    const [reviewsList, setReviewsList] = useState([]);
 
     return (
         <div className="MainContent-container">
@@ -17,6 +19,7 @@ const MainContent = () => {
                     <p className="sidebar">Write a new review here</p>
                 </Route>
                 <Route exact path="/reviews">
+                    <Reviews reviewsList={reviewsList} setReviewsList={setReviewsList}/>
                     <p className="sidebar">This will show a list of reviews</p>
                 </Route>
                 <Route exact path="/categories">
