@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSingleReview } from '../hooks/useApi.js';
+import Comments from './Comments.jsx';
 
 const SingleReview = () => {
     const { review_id } = useParams();
@@ -29,7 +30,11 @@ const SingleReview = () => {
                 <img className="singleReview-card__img" src={singleReview.review_img_url} alt={singleReview.title}/>
                 <p>{singleReview.review_body}</p>
             </li>
-            <li className="commentsSection"><h3>{`//Comments: ${singleReview.comment_count} [+]...`}</h3></li>
+            <li className="commentsSection">
+                <h3>{`Comments: ${singleReview.comment_count} [+]...`}</h3>
+                <Comments review_id={review_id}/>
+            </li>
+
             
         </div>
     );

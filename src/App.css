@@ -227,6 +227,24 @@ li {
   border-bottom: 1px solid lightgrey;
 }
 
+.oneComment {
+  display: grid;
+  grid-template-areas: 'details votes' 'body votes';
+  border-bottom: 1px solid whitesmoke;
+  padding: 10px 0 10px 0;
+  text-align: left;
+}
+.oneComment__nameDate {
+  grid-area: details;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+.oneComment__body {
+  grid-area: body;
+}
+.onceComment__votes {
+  grid-area: votes;
+}
 
 
 @media screen and (max-width: 600px) {
