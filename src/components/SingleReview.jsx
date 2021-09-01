@@ -33,7 +33,7 @@ const SingleReview = () => {
             </li>
             <li className="commentsSection">
                 <h3>{`Comments: ${singleReview.comment_count} [+]...`}</h3>
-                <Expandable buttonName="Comments">
+                <Expandable>
                     <Comments review_id={review_id}/>
                 </Expandable>
             </li>
