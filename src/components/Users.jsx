@@ -1,19 +1,10 @@
-import { useEffect } from 'react';
-// import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useUsers } from '../hooks/useApi.js';
 
 const Users = (props) => {
-    const { usersList, setUsersList } = props;
+    const { usersList, isLoading } = useUsers();
 
-    useEffect(() => {
-        fetch('https://be-ncgames-server.herokuapp.com/api/users')
-            .then(response => response.json())
-            .then((data) => {
-                //  console.log(data.users)
-                setUsersList(data.users)
-            });
-    }, [setUsersList]);
-
+    if (isLoading) return <h2 class="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
             <ul>

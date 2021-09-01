@@ -7,6 +7,11 @@ const gamesApi = axios.create({
 const getReviews = async () => {
     const {data} = await gamesApi.get('/reviews');
     return data.reviews;
-}
+};
 
-export default getReviews ;
+const getUsers = async () => {
+    const {data} = await gamesApi.get('/users');
+    return data.users;
+};
+
+export { getReviews, getUsers };
