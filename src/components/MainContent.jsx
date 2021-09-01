@@ -4,6 +4,7 @@ import Users from './Users.jsx';
 import Reviews from './Reviews.jsx';
 import Categories from './Categories.jsx';
 import SingleReview from './SingleReview.jsx';
+import CreateReview from './CreateReview.jsx';
 
 const MainContent = () => {
 
@@ -18,6 +19,7 @@ const MainContent = () => {
                     <p className="sidebar">This is the home page</p>
                 </Route>
                 <Route exact path="/create">
+                    <CreateReview />
                     <p className="sidebar">Write a new review here</p>
                 </Route>
                 <Route exact path="/reviews/:review_id">
@@ -35,7 +37,7 @@ const MainContent = () => {
                 <Route exact path="/users">
                     <Users usersList={usersList} setUsersList={setUsersList}/>
                     <p className="sidebar">This will display all users</p>
-                </Route>
+                </Route>                  
             </Switch>
         </div>
     );
