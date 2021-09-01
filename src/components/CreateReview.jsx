@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useCategories } from '../hooks/useApi.js';
 
 const CreateReview = (props) => {
     const { signedInUser } = props;
+    const { categoriesList, isLoading } = useCategories();
+
 
     const [newReview, setNewReview] = useState({
         owner: signedInUser,
@@ -30,10 +33,10 @@ const CreateReview = (props) => {
             const updatedReview = { ...currReview };
             updatedReview[name] = value;
             return updatedReview;
-        })
-    }
+        });
+    };
 
-
+    if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
             {/* <p>Writing a new review...</p>
@@ -61,12 +64,23 @@ const CreateReview = (props) => {
                     />
                 </label>
                 <label>
-                    <input
-                        name="category"
-                        placeholder="Game Category..."
-                        value={newReview.category}
-                        onChange={handleInputChange}
-                    />
+                <select 
+                    name="category"
+                    onChange={handleInputChange}
+                    className="createReview-card__categories"
+                    defaultValue="selected">
+                    <option key="categorySelector" value="selected" disabled hidden>Game Category...</option>
+                    <option key="noCategory" value="">none</option>
+                    {categoriesList.map(category => {
+                        return (
+                            <option 
+                                key={category.slug}
+                                value={category.slug}>
+                                {category.slug.replace(/-/g, ' ')}
+                            </option>
+                            )
+                        })};
+                </select>
                 </label>
                 <label >
                     <textarea className="createReview-card__body"

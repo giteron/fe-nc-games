@@ -267,6 +267,16 @@ li {
   border-bottom: 1px solid lightgrey;
   margin-bottom: 2px;
   color: #333333;
+  text-align: left;
+}
+.createReview-card select{
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  /* border-bottom: 1px solid lightgrey; */
+  margin-bottom: 2px;
+  color: lightslategrey;
+  opacity: 0.55;
 }
 .createReview-card__body {
   height:200px;
@@ -274,6 +284,7 @@ li {
   padding: 10px;
   border: 0;
   border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
   margin-bottom: 2px;
   color: #333333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
