@@ -4,14 +4,14 @@ import { useUsers } from '../hooks/useApi.js';
 const Users = (props) => {
     const { usersList, isLoading } = useUsers();
 
-    if (isLoading) return <h2 class="MainContent-content">Loading...</h2>
+    if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
             <ul>
                 {usersList.map(user => {
                     return (
-                        <Link to={`/user/${user.username}`} >
-                            <li key={user.username}>
+                        <Link to={`/user/${user.username}`} key={user.username} >
+                            <li>
                                 <h2>{user.username}</h2>
                             </li>
                         </Link>

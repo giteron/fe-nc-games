@@ -4,14 +4,14 @@ import { useReviews } from '../hooks/useApi.js';
 const Reviews = () => {
     const { reviewsList, isLoading } = useReviews();
 
-    if (isLoading) return <h2 class="MainContent-content">Loading...</h2>
+    if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
             <ul>
                 {reviewsList.map(review => {
                     return (
-                        <Link to={`/reviews/${review.review_id}`} >
-                            <li className="reviews-card" key={review.review_id}>
+                        <Link to={`/reviews/${review.review_id}`} key={review.review_id} >
+                            <li className="reviews-card">
                                 <h3>{review.title}</h3>
                                 <img className="reviews-card__img" src={review.review_img_url} alt={review.title}/>
                                 <span className="reviews-card__owner">{review.owner}</span>
