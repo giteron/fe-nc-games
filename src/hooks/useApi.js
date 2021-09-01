@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getReviews, getUsers } from '../api.js';
+import { getReviews, getUsers, getCategories } from '../api.js';
 
 export const useReviews = () => {
     const [ reviewsList, setReviewsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true)
+        setIsLoading(true);
         getReviews()
             .then((reviews) => {
                 //  console.log(reviews);
@@ -23,7 +23,7 @@ export const useUsers = () => {
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true)
+        setIsLoading(true);
         getUsers()
             .then((users) => {
                 //  console.log(users);
@@ -33,4 +33,21 @@ export const useUsers = () => {
     }, [setUsersList]);
 
     return { usersList, isLoading }
+};
+
+export const useCategories = () => {
+    const [ categoriesList, setCategoriesList ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        getCategories()
+            .then((categories) => {
+                //  console.log(categories);
+                setCategoriesList(categories);
+                setIsLoading(false);
+            });
+    }, [setCategoriesList]);
+
+    return { categoriesList, isLoading }
 };

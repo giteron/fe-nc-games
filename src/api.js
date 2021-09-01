@@ -14,4 +14,9 @@ const getUsers = async () => {
     return data.users;
 };
 
-export { getReviews, getUsers };
+const getCategories = async () => {
+    const {data} = await gamesApi.get('/categories');
+    return data.categories;
+};
+
+export { getReviews, getUsers, getCategories };

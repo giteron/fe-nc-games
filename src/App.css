@@ -191,6 +191,12 @@ li {
   font-size: 2rem;
 }
 
+.category-title {
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  color: black;
+}
+
 
 
 @media screen and (max-width: 600px) {

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Users from './Users.jsx';
 import Reviews from './Reviews.jsx';
+import Categories from './Categories.jsx';
 
 const MainContent = () => {
 
@@ -23,6 +24,7 @@ const MainContent = () => {
                     <p className="sidebar">This will show a list of reviews</p>
                 </Route>
                 <Route exact path="/categories">
+                    <Categories />
                     <p className="sidebar">This will show all categories</p>
                 </Route>
                 <Route exact path="/users">
