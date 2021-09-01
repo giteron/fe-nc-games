@@ -36,11 +36,12 @@ const CreateReview = (props) => {
 
     return (
         <div className="MainContent-content">
-            <p>Writing a new review...</p>
+            {/* <p>Writing a new review...</p>
             <p>Takes owner, title, review_body, designer, category</p>
-            <p>Returns above plus votes, created_at, comment_count</p>
+            <p>Returns above plus votes, created_at, comment_count</p> */}
 
-            <li>
+            <li className="createReview-card">
+                <h2>Write a new review</h2>
             <form onSubmit={handleSubmit}>
                 <p>{`Posting as ${signedInUser}`}</p>
                 <label>
@@ -48,14 +49,6 @@ const CreateReview = (props) => {
                         name="title"
                         placeholder="Review Title..."
                         value={newReview.title}
-                        onChange={handleInputChange}
-                    />
-                </label>
-                <label>
-                    <input
-                        name="review_body"
-                        placeholder="Review Body..."
-                        value={newReview.review_body}
                         onChange={handleInputChange}
                     />
                 </label>
@@ -70,8 +63,16 @@ const CreateReview = (props) => {
                 <label>
                     <input
                         name="category"
-                        placeholder="Game category..."
+                        placeholder="Game Category..."
                         value={newReview.category}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label >
+                    <textarea className="createReview-card__body"
+                        name="review_body"
+                        placeholder="Review Body..."
+                        value={newReview.review_body}
                         onChange={handleInputChange}
                     />
                 </label>
