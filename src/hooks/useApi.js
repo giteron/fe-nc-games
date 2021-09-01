@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getReviews, getUsers, getCategories } from '../api.js';
+import { getReviews, getUsers, getCategories, getReviewById } from '../api.js';
 
 export const useReviews = () => {
     const [ reviewsList, setReviewsList ] = useState([]);
@@ -50,4 +50,23 @@ export const useCategories = () => {
     }, [setCategoriesList]);
 
     return { categoriesList, isLoading }
+};
+
+export const useSingleReview = (review_id) => {
+    // console.log(review_id, '------- this is the review ID');
+
+    const [ singleReview, setSingleReview ] = useState({});
+    const [ isLoading, setIsLoading ] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        getReviewById(review_id)
+            .then((review) => {
+                //  console.log(review, '-----fetched review');
+                setSingleReview(review);
+                setIsLoading(false);
+            });
+    }, [review_id]);
+
+    return { singleReview, isLoading }
 };

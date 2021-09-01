@@ -197,6 +197,36 @@ li {
   color: black;
 }
 
+.singleReview-card {
+  list-style: none;
+  /* display: 'grid';
+  grid-template-areas: 
+  'title title votes' 
+  'userDetails . gameDetails' 
+  'img img img' 
+  'body body body'; */
+}
+.singleReview-card h2 {
+  grid-area: title;
+  color:rgb(26, 26, 26)
+}
+.singleReview-card__votes {
+  grid-area: votes;
+}
+.singleReview-card__img {
+  grid-area: img;
+  width: 100%;
+  margin: 1rem 0 1rem 0;  
+}
+
+.commentsSection {
+  list-style: none;
+}
+.commentsSection h3 {
+  padding-bottom: 5px;
+  border-bottom: 1px solid lightgrey;
+}
+
 
 
 @media screen and (max-width: 600px) {

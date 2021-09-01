@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Users from './Users.jsx';
 import Reviews from './Reviews.jsx';
 import Categories from './Categories.jsx';
+import SingleReview from './SingleReview.jsx';
 
 const MainContent = () => {
 
@@ -18,6 +19,10 @@ const MainContent = () => {
                 </Route>
                 <Route exact path="/create">
                     <p className="sidebar">Write a new review here</p>
+                </Route>
+                <Route exact path="/reviews/:review_id">
+                    <SingleReview />
+                    <p className="sidebar">This will display a single review</p>
                 </Route>
                 <Route exact path="/reviews">
                     <Reviews reviewsList={reviewsList} setReviewsList={setReviewsList}/>

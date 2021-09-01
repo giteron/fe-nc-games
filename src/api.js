@@ -19,4 +19,11 @@ const getCategories = async () => {
     return data.categories;
 };
 
-export { getReviews, getUsers, getCategories };
+const getReviewById = async (review_id) => {
+    // console.log(review_id, '----------- review_id in AXIOS')
+    const {data} = await gamesApi.get(`/reviews/${review_id}`);
+    // console.log(data, '----- data')
+    return data.review;
+};
+
+export { getReviews, getUsers, getCategories, getReviewById };
