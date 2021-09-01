@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Users from '../Users';
-import Reviews from './Reviews';
+import Users from './Users.jsx';
+import Reviews from './Reviews.jsx';
 
 const MainContent = () => {
 
