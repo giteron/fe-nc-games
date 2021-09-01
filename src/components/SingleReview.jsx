@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSingleReview } from '../hooks/useApi.js';
 import Comments from './Comments.jsx';
+import Expandable from './Expandable.jsx';
 
 const SingleReview = () => {
     const { review_id } = useParams();
@@ -32,10 +33,10 @@ const SingleReview = () => {
             </li>
             <li className="commentsSection">
                 <h3>{`Comments: ${singleReview.comment_count} [+]...`}</h3>
-                <Comments review_id={review_id}/>
+                <Expandable buttonName="Comments">
+                    <Comments review_id={review_id}/>
+                </Expandable>
             </li>
-
-            
         </div>
     );
 };
