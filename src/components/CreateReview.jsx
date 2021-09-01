@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
-const CreateReview = () => {
+const CreateReview = (props) => {
+    const { signedInUser } = props;
 
     const [newReview, setNewReview] = useState({
-        owner: /*logged-in user*/'',
+        owner: signedInUser,
         title: '',
         review_body: '',
         designer: '',
@@ -41,6 +42,7 @@ const CreateReview = () => {
 
             <li>
             <form onSubmit={handleSubmit}>
+                <p>{`Posting as ${signedInUser}`}</p>
                 <label>
                     <input
                         name="title"
