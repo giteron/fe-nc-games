@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import getReviews  from '../api.js';
 
 export const useReviews = () => {
     const [ reviewsList, setReviewsList ] = useState([]);
@@ -6,11 +7,10 @@ export const useReviews = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://be-ncgames-server.herokuapp.com/api/reviews')
-            .then(response => response.json())
-            .then((data) => {
+        getReviews()
+            .then((reviews) => {
                 //  console.log(data.reviews);
-                setReviewsList(data.reviews);
+                setReviewsList(reviews);
                 setIsLoading(false);
             });
     }, [setReviewsList]);

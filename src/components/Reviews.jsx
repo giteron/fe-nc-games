@@ -1,18 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useReviews } from '../hooks/useApi.js';
 
-const Reviews = (props) => {
-    const { reviewsList } = useReviews();
+const Reviews = () => {
+    const { reviewsList, isLoading } = useReviews();
 
-    // useEffect(() => {
-    //     fetch('https://be-ncgames-server.herokuapp.com/api/reviews')
-    //         .then(response => response.json())
-    //         .then((data) => {
-    //              console.log(data.reviews)
-    //             setReviewsList(data.reviews)
-    //         });
-    // }, [setReviewsList]);
-
+    if (isLoading) return <h2 class="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
             <ul>
