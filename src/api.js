@@ -7,7 +7,6 @@ const gamesApi = axios.create({
 const getReviews = async (page, category) => {
     const {data} = await gamesApi.get('/reviews', 
     { params: { p: page, limit: 8, category } });
-    console.log(data, 'getReviews')
     return data;
 };
 

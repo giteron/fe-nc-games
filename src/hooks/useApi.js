@@ -24,7 +24,7 @@ export const useReviews = (category) => {
             });
     }, [setReviewsList, category, page]);
 
-    return { reviewsList, isLoading, page, setPage }
+    return { reviewsList, isLoading, page, setPage, totalReviews }
 };
 
 export const useUsers = () => {
