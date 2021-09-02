@@ -434,6 +434,33 @@
     background-color: darkred;
   }
 
+  #votesComponent {
+    width: 40px;
+    padding: 0;
+    margin: 0;
+  }
+  #voteCount {
+    font-size: 1.2rem;
+    color: black;
+  }
+  #votesComponent button {
+    background-color: #333333;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  #votesComponent button:hover {
+    background-color: grey;
+  }
+  #votesComponent button:active {
+    background-color: lightgrey;
+  }
+
   
   
   @media screen and (max-width: 600px) {
