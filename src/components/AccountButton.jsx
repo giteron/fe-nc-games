@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+
 const AccountButton = (props) => {
     const { signedInUser } = props;
 
     return (
         <div className="AccountButton-container">
             <section className="userDetails">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="the user" />
-                <p>{signedInUser ? signedInUser : 'Sign In'}</p>
+                {/* blank profile image <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="the user" /> */}
+                <Link to="/account">
+                    <img src={signedInUser.avatar_url} alt="the user" />
+                    <p id="accountLink">{signedInUser.username ? signedInUser.username : 'Sign In'}</p>
+                </Link>
            </section>
         </div>
     );

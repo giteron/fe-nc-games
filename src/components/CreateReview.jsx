@@ -4,10 +4,9 @@ import { useCategories } from '../hooks/useApi.js';
 const CreateReview = (props) => {
     const { signedInUser } = props;
     const { categoriesList, isLoading } = useCategories();
-
-
+    
     const [newReview, setNewReview] = useState({
-        owner: signedInUser,
+        owner: signedInUser.username,
         title: '',
         review_body: '',
         designer: '',
@@ -46,7 +45,7 @@ const CreateReview = (props) => {
             <li className="createReview-card">
                 <h2>Write a new review</h2>
             <form onSubmit={handleSubmit}>
-                <p>{`Posting as ${signedInUser}`}</p>
+                <p>{`Posting as ${signedInUser.username}`}</p>
                 <label>
                     <input
                         name="title"
@@ -95,7 +94,6 @@ const CreateReview = (props) => {
             </li>
         </div>
     );
-
 };
 
 export default CreateReview;

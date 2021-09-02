@@ -5,6 +5,7 @@ import Reviews from './Reviews.jsx';
 import Categories from './Categories.jsx';
 import SingleReview from './SingleReview.jsx';
 import CreateReview from './CreateReview.jsx';
+import UserAccount from './UserAccount.jsx';
 
 const MainContent = (props) => {
     const { signedInUser } = props;
@@ -38,7 +39,11 @@ const MainContent = (props) => {
                 <Route exact path="/users">
                     <Users usersList={usersList} setUsersList={setUsersList}/>
                     <p className="sidebar">This will display all users</p>
-                </Route>                  
+                </Route>
+                <Route exact path="/account">
+                    <UserAccount signedInUser={signedInUser}/>
+                    <p className="sidebar">This will display the user's account page</p>
+                </Route>               
             </Switch>
         </div>
     );
