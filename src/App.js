@@ -9,7 +9,11 @@ import { useState } from 'react';
 
 function App() {
 
-  const [ signedInUser, setSignedInUser ] = useState('TestUser');
+  const [ signedInUser, setSignedInUser ] = useState({
+    username: 'happyamy2016',
+    avatar_url: 'https://i.pinimg.com/736x/4f/3f/96/4f3f96245a44bb3b3d4f98036560048c.jpg',
+    name: 'Bob Jones'
+  });
 
   return (
     <BrowserRouter>

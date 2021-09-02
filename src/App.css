@@ -364,7 +364,7 @@
 
   .userAccount-quickLinks {
     list-style: none;
-    padding: 15px;
+    padding: 10px 15px 15px 15px;
   }
   .userAccount-quickLinks h3 {
     color: #333333;
@@ -416,7 +416,7 @@
     grid-area: button;
     text-align: center;
   }
-  .manageContent-options button{
+  .manageContent-options button {
     margin-top: 8px;
     margin-bottom: 4px;
     background-color: crimson;
@@ -427,7 +427,12 @@
     cursor: pointer;
     border-radius: 4px;
   }
-
+  .manageContent-options button:hover {
+    background-color: red;
+  }
+  .manageContent-options button:active {
+    background-color: darkred;
+  }
 
   
   
