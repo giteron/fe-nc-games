@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router';
 import { postReview } from '../api.js';
 import { useCategories } from '../hooks/useApi.js';
 
 const CreateReview = (props) => {
     const { signedInUser } = props;
     const { categoriesList, isLoading } = useCategories();
-    
-    const [newReview, setNewReview] = useState({
+    const [ hasPosted, setHasPosted ] = useState (false);
+    const [ newReviewId, setnewReviewId ] = useState(0);
+    const [ newReview, setNewReview ] = useState({
         owner: signedInUser.username,
         title: '',
         review_body: '',
@@ -16,10 +18,17 @@ const CreateReview = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newReview);
-        postReview(newReview);
-        // reset the input to be empty
-        // setNewItem('');
+        setHasPosted(true);
+        postReview(newReview)
+        .then(({review_id}) => {
+            setnewReviewId(review_id);
+        });
+    };
+
+    const handleRedirect = () => {
+        if(newReviewId) {
+            return <Redirect to={`/reviews/${newReviewId}`} />
+        };
     };
 
     const handleInputChange = (event) => {
@@ -36,10 +45,7 @@ const CreateReview = (props) => {
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
     return (
         <div className="MainContent-content">
-            {/* <p>Writing a new review...</p>
-            <p>Takes owner, title, review_body, designer, category</p>
-            <p>Returns above plus votes, created_at, comment_count</p> */}
-
+            {handleRedirect()}
             <li className="createReview-card">
                 <h2>Write a new review</h2>
             <form onSubmit={handleSubmit}>
@@ -87,7 +93,10 @@ const CreateReview = (props) => {
                         onChange={handleInputChange}
                     />
                 </label>
+                {
+                hasPosted ? <h3>Posting...</h3> : 
                 <button type="submit">Post</button>
+                }
             </form>
             </li>
         </div>
@@ -95,31 +104,3 @@ const CreateReview = (props) => {
 };
 
 export default CreateReview;
-
-/*
-"POST /api/reviews/": {
-    "description": "adds a new review object and serves that newly-posted review object with an auto-generated review_id, plus vote count/timestamp/comment count",
-    "queries": [
-
-    ],
-    "exampleRequest": {
-      "owner": "happyamy2016",
-      "title": "My review for [game title]",
-      "review_body": "This is a great game to play with friends!",
-      "designer": "Leslie Scott",
-      "category": "dexterity"
-    },
-    "exampleResponse": {
-      "comment": {
-        "owner": "happyamy2016",
-        "title": "My review for [game title]",
-        "review_body": "This is a great game to play with friends!",
-        "designer": "Leslie Scott",
-        "category": "dexterity",
-        "review_id": 26,
-        "votes": 0,
-        "created_at": "2021-08-07T21:57:49.666Z",
-        "comment_count": 0
-      }
-    }
-  } */

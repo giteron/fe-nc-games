@@ -52,7 +52,7 @@ const patchVotes = async (path, component_id, increment) => {
 const postReview = async (reviewBody) => {
     const { data } = await gamesApi.post(`/reviews`, reviewBody);
     console.log('posted')
-    console.log(data.review);
+    return data.review;
 }
 
 export { 
