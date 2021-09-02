@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useReviews } from '../hooks/useApi.js';
+import { useParams } from 'react-router';
 
 const Reviews = () => {
-    const { reviewsList, isLoading } = useReviews();
+    const { category } = useParams();
+    const { reviewsList, isLoading } = useReviews(category);
 
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
     return (

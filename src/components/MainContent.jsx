@@ -43,6 +43,10 @@ const MainContent = (props) => {
                 <Route exact path="/account">
                     <UserAccount signedInUser={signedInUser}/>
                     <p className="sidebar">This will display the user's account page</p>
+                </Route>
+                <Route exact path="/categories/:category">
+                    <Reviews />
+                    <p className="sidebar">This will show all categories</p>
                 </Route>               
             </Switch>
         </div>

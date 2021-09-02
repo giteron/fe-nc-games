@@ -8,19 +8,19 @@ import {
     deleteReviewByReviewId
 } from '../api.js';
 
-export const useReviews = () => {
+export const useReviews = (category) => {
     const [ reviewsList, setReviewsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getReviews()
+        getReviews(category)
             .then((reviews) => {
                 //  console.log(reviews);
                 setReviewsList(reviews);
                 setIsLoading(false);
             });
-    }, [setReviewsList]);
+    }, [setReviewsList, category]);
 
     return { reviewsList, isLoading }
 };
