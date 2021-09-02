@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { postReview } from '../api.js';
 import { useCategories } from '../hooks/useApi.js';
 
 const CreateReview = (props) => {
@@ -15,11 +16,8 @@ const CreateReview = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newReview)
-        // post the form with useApi...
-        /* setList((currList) => {
-             return [newItem, ...currList];
-         }); */
+        console.log(newReview);
+        postReview(newReview);
         // reset the input to be empty
         // setNewItem('');
     };

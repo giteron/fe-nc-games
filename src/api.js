@@ -49,6 +49,12 @@ const patchVotes = async (path, component_id, increment) => {
     return console.log(data);
 };
 
+const postReview = async (reviewBody) => {
+    const { data } = await gamesApi.post(`/reviews`, reviewBody);
+    console.log('posted')
+    console.log(data.review);
+}
+
 export { 
     getReviews, 
     getUsers, 
@@ -56,5 +62,6 @@ export {
     getReviewById, 
     getCommentsByReviewId,
     deleteReviewByReviewId,
-    patchVotes
+    patchVotes,
+    postReview
 };
