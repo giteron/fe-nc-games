@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSingleReview } from '../hooks/useApi.js';
 import Comments from './Comments.jsx';
 import Expandable from './Expandable.jsx';
+import Votes from './Votes.jsx';
 
 const SingleReview = () => {
     const { review_id } = useParams();
@@ -14,7 +15,7 @@ const SingleReview = () => {
         <div className="MainContent-content">
             <li className="singleReview-card" key={singleReview.review_id}>
                 <h2>{singleReview.title}</h2> 
-                <span className="singleReview-card__votes">{singleReview.votes} votes</span>
+                <Votes votes={singleReview.votes} review_id={singleReview.review_id}/>
                 <p>
                     <span className="singleReview-card__owner">A review by {singleReview.owner}</span>
                     <span className="singleReview-card__date">{new Date(singleReview.created_at).toLocaleDateString()}</span>

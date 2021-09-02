@@ -32,10 +32,28 @@ const getCommentsByReviewId = async (review_id) => {
     return data.comments;
 };
 
+const deleteReviewByReviewId = async (review_id) => {
+    console.log('deleteReviewByReviewId starting', `id ${review_id}`)
+    await gamesApi.delete(`/reviews/14`)
+    .then(() => {
+        console.log('this should have deleted now...')
+    })
+
+};
+
+const patchVotes = async (review_id, increment) => {
+    const { data } = await gamesApi.patch(`/reviews/${review_id}`, {
+        inc_votes: increment
+    });
+    return console.log(data);
+};
+
 export { 
     getReviews, 
     getUsers, 
     getCategories, 
     getReviewById, 
-    getCommentsByReviewId
+    getCommentsByReviewId,
+    deleteReviewByReviewId,
+    patchVotes
 };
