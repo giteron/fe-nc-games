@@ -28,6 +28,9 @@
     align-items: center;
     text-align: center;
   }
+  #accountLink {
+    color: white;
+  }
   
   .userDetails {
     padding-top: 15%;
@@ -358,7 +361,29 @@
     border-radius: 4px;
   }
 
-  
+
+  .userAccount-quickLinks {
+    list-style: none;
+    padding: 15px;
+  }
+  .userAccount-quickLinks h3 {
+    color: #333333;
+    margin-bottom: 3%;
+  }
+  #quickLinks {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 3% 0 3%;
+  }
+  #forDevs {
+    font-size: 0.65rem;
+  }
+
+
+
+
+
+
   
   
   @media screen and (max-width: 600px) {
