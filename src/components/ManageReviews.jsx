@@ -1,4 +1,6 @@
 import { useReviews } from '../hooks/useApi.js';
+import { deleteReviewByReviewId } from '../api.js';
+import { Link } from 'react-router-dom';
 
 const ManageReviews = (props) => {
     const { signedInUser } = props;
@@ -7,22 +9,29 @@ const ManageReviews = (props) => {
         return review.owner === signedInUser.username;
     })
 
+    const deleteReview = (review_id) => {
+        // console.log('deleteReview starting', `id ${review_id}`)
+        deleteReviewByReviewId(review_id);
+    };
+
     if (isLoading) return <h4>Loading...</h4>
     return (
         <section>
             {thisUsersReviews.map(review => {
                 return (
-                    <section className="manageContent-card">
+                    <section key={review.review_id} className="manageContent-card">
                         <section id="manageContent-details">
                         <img 
                             id="manageContent-img"src={review.review_img_url} 
                             alt={review.title}
                         />
-                        <h4>{review.title}</h4>
+                        <Link to={`/reviews/${review.review_id}`}><h4>{review.title}</h4></Link>
                         <p>{new Date(review.created_at).toLocaleDateString()}</p>
                         </section>
                         <section className="manageContent-options"> 
-                        <button>Delete</button>
+                        <button
+                            onClick={(() => {deleteReview(review.review_id)})}
+                        >Delete</button>
                         </section>
                     </section>
                 )

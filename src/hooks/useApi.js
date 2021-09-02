@@ -4,7 +4,8 @@ import {
     getUsers, 
     getCategories, 
     getReviewById, 
-    getCommentsByReviewId
+    getCommentsByReviewId,
+    deleteReviewByReviewId
 } from '../api.js';
 
 export const useReviews = () => {
@@ -95,3 +96,23 @@ export const useComments = (review_id) => {
 
     return { commentsList, isLoading }
 };
+
+
+// export const useDeleteSingleReview = (review_id) => {
+//     // console.log(review_id, '------- this is the review ID');
+
+//     const [ singleReview, setSingleReview ] = useState({});
+//     const [ isLoading, setIsLoading ] = useState(true);
+
+//     useEffect(() => {
+//         setIsLoading(true);
+//         getReviewById(review_id)
+//             .then((review) => {
+//                 //  console.log(review, '-----fetched review');
+//                 setSingleReview(review);
+//                 setIsLoading(false);
+//             });
+//     }, [review_id]);
+
+//     return { singleReview, isLoading }
+// };
