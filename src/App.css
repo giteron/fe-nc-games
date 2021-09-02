@@ -151,6 +151,11 @@
     font-size: 0.85rem;
     color: rgb(114, 114, 114);
   }
+
+  #reviewsTitle {
+    margin-bottom: 5%;
+    color: black;
+  }
   
   .reviews-card__img {
     grid-area: img;

@@ -4,9 +4,11 @@ const gamesApi = axios.create({
     baseURL: 'https://be-ncgames-server.herokuapp.com/api'
 });
 
-const getReviews = async (category) => {
-    const {data} = await gamesApi.get('/reviews', { params: { category } });
-    return data.reviews;
+const getReviews = async (page, category) => {
+    const {data} = await gamesApi.get('/reviews', 
+    { params: { p: page, limit: 8, category } });
+    console.log(data, 'getReviews')
+    return data;
 };
 
 const getUsers = async () => {

@@ -11,18 +11,20 @@ import {
 export const useReviews = (category) => {
     const [ reviewsList, setReviewsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
+    const [ page, setPage ] = useState(1);
+    const [ totalReviews, setTotalReviews ] = useState(0);
 
     useEffect(() => {
         setIsLoading(true);
-        getReviews(category)
-            .then((reviews) => {
-                //  console.log(reviews);
-                setReviewsList(reviews);
+        getReviews(page, category)
+            .then((data) => {
+                setReviewsList(currList => [...currList, ...data.reviews]);
+                setTotalReviews(data.total_count)
                 setIsLoading(false);
             });
-    }, [setReviewsList, category]);
+    }, [setReviewsList, category, page]);
 
-    return { reviewsList, isLoading }
+    return { reviewsList, isLoading, page, setPage }
 };
 
 export const useUsers = () => {

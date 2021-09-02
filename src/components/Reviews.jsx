@@ -1,15 +1,33 @@
 import { Link } from 'react-router-dom';
 import { useReviews } from '../hooks/useApi.js';
 import { useParams } from 'react-router';
+import { useEffect } from 'react';
 
 const Reviews = () => {
     const { category } = useParams();
-    const { reviewsList, isLoading } = useReviews(category);
+    const { reviewsList, isLoading, page, setPage } = useReviews(category);
 
-    if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
+    // const handleScroll = () => {
+    //     const currentDiv = document.getElementById("contentWindow");
+    //     if (window.scrollY - 100 + window.innerHeight >= currentDiv.clientHeight) {
+    //         console.log('Fetch more items!')
+    //         setPage(currPage => currPage + 1);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
+
+    const loadMore = () => {
+        setPage(currPage => currPage + 1)
+    }
+
     return (
-        <div className="MainContent-content">
-            <ul>
+        <div id="contentWindow" className="MainContent-content">
+            <h2 id="reviewsTitle">Reviews for <span className="category-title">{category ? category.replace(/-/g, ' ') : 'all'}</span> Games</h2>
+            <ul id="listContent">
                 {reviewsList.map(review => {
                     return (
                         <Link to={`/reviews/${review.review_id}`} key={review.review_id} >
@@ -23,6 +41,12 @@ const Reviews = () => {
                         </Link>
                     );
                 })}
+            <>
+            {isLoading ? 
+                <h3 className="MainContent-content">{isLoading && 'Loading.......'}</h3> 
+                : <button onClick={loadMore}>Load More</button>
+            }
+            </>
             </ul>
         </div>
     );
