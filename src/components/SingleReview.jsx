@@ -15,7 +15,11 @@ const SingleReview = () => {
         <div className="MainContent-content">
             <li className="singleReview-card" key={singleReview.review_id}>
                 <h2>{singleReview.title}</h2> 
-                <Votes votes={singleReview.votes} review_id={singleReview.review_id}/>
+                <Votes 
+                    votes={singleReview.votes} 
+                    component_id={singleReview.review_id}
+                    path="reviews"
+                />
                 <p>
                     <span className="singleReview-card__owner">A review by {singleReview.owner}</span>
                     <span className="singleReview-card__date">{new Date(singleReview.created_at).toLocaleDateString()}</span>

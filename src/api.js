@@ -41,8 +41,8 @@ const deleteReviewByReviewId = async (review_id) => {
 
 };
 
-const patchVotes = async (review_id, increment) => {
-    const { data } = await gamesApi.patch(`/reviews/${review_id}`, {
+const patchVotes = async (path, component_id, increment) => {
+    const { data } = await gamesApi.patch(`/${path}/${component_id}`, {
         inc_votes: increment
     });
     return console.log(data);

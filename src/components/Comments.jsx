@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useComments } from '../hooks/useApi.js';
+import Votes from './Votes.jsx';
 
 const Comments = (props) => {
     const { review_id } = props;
@@ -17,7 +18,12 @@ const Comments = (props) => {
                              {new Date(comment.created_at).toLocaleDateString()}
                         </p>
                         <p className="oneComment__body">{comment.body}</p>
-                        <p className="oneComment__votes">{`${comment.votes} ${comment.votes === 1 ? 'vote' : 'votes'}`}</p>
+                        <Votes 
+                            className="oneComment__votes" 
+                            votes={comment.votes} 
+                            component_id={comment.comment_id}
+                            path="comments"
+                        />
                     </section>
                 );
             })}
