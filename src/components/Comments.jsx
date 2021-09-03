@@ -5,7 +5,12 @@ import Votes from './Votes.jsx';
 
 const Comments = (props) => {
     const { review_id, signedInUser } = props;
-    const { commentsList, isLoading } = useComments(review_id);
+    const { commentsList, isLoading, page, setPage } = useComments(review_id);
+
+    const loadMore = () => {
+        setPage(currPage => currPage + 1)
+    };
+
 
     const deleteComment = (comment_id) => {
         // console.log('deleteReview starting', `id ${review_id}`)
@@ -14,7 +19,7 @@ const Comments = (props) => {
 
     return (
         <>
-        {isLoading && <h2>Loading...</h2>}
+        
         {commentsList.length === 0 && <>{'No comments yet...'}</>}
             {commentsList.map(comment => {
                 return (
@@ -38,6 +43,11 @@ const Comments = (props) => {
                     </section>
                 );
             })}
+            <section id="loadMore">
+            {isLoading ? 
+                <h4>Loading...</h4> :
+                <button onClick={() => loadMore()}>Load more</button>}
+            </section>
         </>
     );
 };

@@ -27,10 +27,11 @@ const getReviewById = async (review_id) => {
     return data.review;
 };
 
-const getCommentsByReviewId = async (review_id) => {
-    const {data} = await gamesApi.get(`/reviews/${review_id}/comments`);
+const getCommentsByReviewId = async (review_id, page, limit = 5) => {
+    const {data} = await gamesApi.get(`/reviews/${review_id}/comments`,
+     { params: { p: page, limit } });
     // console.log(data, '------------data')
-    return data.comments;
+    return data;
 };
 
 const deleteReviewByReviewId = async (review_id) => {

@@ -85,18 +85,22 @@ export const useComments = (review_id) => {
 
     const [ commentsList, setCommentsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
+    const [ page, setPage ] = useState(1);
+    // const [ totalComments, setTotalComments ] = useState(0);
+
+
 
     useEffect(() => {
         setIsLoading(true);
-        getCommentsByReviewId(review_id)
-            .then((comments) => {
-                //  console.log(comments);
-                setCommentsList(comments);
+        getCommentsByReviewId(review_id, page)
+            .then((data) => {
+                setCommentsList(currList => [...currList, ...data.comments]);
+                // setTotalReviews(data.total_count)
                 setIsLoading(false);
             });
-    }, [review_id, commentsList]);
+    }, [review_id, page]);
 
-    return { commentsList, isLoading }
+    return { commentsList, isLoading, page, setPage }
 };
 
 export const useSingleUser = (username) => {
