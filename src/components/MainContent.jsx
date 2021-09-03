@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Users from './Users.jsx';
 import Reviews from './Reviews.jsx';
@@ -9,9 +8,6 @@ import UserAccount from './UserAccount.jsx';
 
 const MainContent = (props) => {
     const { signedInUser } = props;
-
-    const [usersList, setUsersList] = useState([]);
-    const [reviewsList, setReviewsList] = useState([]);
 
     return (
         <div className="MainContent-container">
@@ -29,7 +25,7 @@ const MainContent = (props) => {
                     <p className="sidebar">This will display a single review</p>
                 </Route>
                 <Route exact path="/reviews">
-                    <Reviews reviewsList={reviewsList} setReviewsList={setReviewsList}/>
+                    <Reviews />
                     <p className="sidebar">This will show a list of reviews</p>
                 </Route>
                 <Route exact path="/categories">
@@ -37,7 +33,7 @@ const MainContent = (props) => {
                     <p className="sidebar">This will show all categories</p>
                 </Route>
                 <Route exact path="/users">
-                    <Users usersList={usersList} setUsersList={setUsersList}/>
+                    <Users />
                     <p className="sidebar">This will display all users</p>
                 </Route>
                 <Route exact path="/account">

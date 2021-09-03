@@ -4,8 +4,7 @@ import {
     getUsers, 
     getCategories, 
     getReviewById, 
-    getCommentsByReviewId,
-    deleteReviewByReviewId
+    getCommentsByReviewId
 } from '../api.js';
 
 export const useReviews = (category) => {

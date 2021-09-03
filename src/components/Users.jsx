@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useUsers } from '../hooks/useApi.js';
 
-const Users = (props) => {
+const Users = () => {
     const { usersList, isLoading } = useUsers();
 
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
