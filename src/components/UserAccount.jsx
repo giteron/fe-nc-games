@@ -33,7 +33,7 @@ const UserAccount = (props) => {
             <li className="userAccount-manageContent">
                 <h3>{'Manage Content'}</h3>
                 <Expandable>
-                    <ManageReviews signedInUser={signedInUser}/>
+                    <ManageReviews signedInUser={signedInUser} username={signedInUser.username}/>
                 </Expandable>
             </li>
         </div>

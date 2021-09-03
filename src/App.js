@@ -11,8 +11,8 @@ function App() {
 
   const [ signedInUser ] = useState({
     username: 'happyamy2016',
-    avatar_url: 'https://i.pinimg.com/736x/4f/3f/96/4f3f96245a44bb3b3d4f98036560048c.jpg',
-    name: 'Bob Jones'
+    avatar_url: 'https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729',
+    name: 'Amy Happy'
   });
 
   return (
