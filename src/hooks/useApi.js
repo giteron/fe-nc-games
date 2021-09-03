@@ -8,7 +8,7 @@ import {
     getUserByUsername
 } from '../api.js';
 
-export const useReviews = (category) => {
+export const useReviews = (category, limit) => {
     const [ reviewsList, setReviewsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ page, setPage ] = useState(1);
@@ -16,13 +16,13 @@ export const useReviews = (category) => {
 
     useEffect(() => {
         setIsLoading(true);
-        getReviews(page, category)
+        getReviews(page, category, limit)
             .then((data) => {
                 setReviewsList(currList => [...currList, ...data.reviews]);
                 setTotalReviews(data.total_count)
                 setIsLoading(false);
             });
-    }, [setReviewsList, category, page]);
+    }, [setReviewsList, category, page, limit]);
 
     return { reviewsList, isLoading, page, setPage, totalReviews }
 };

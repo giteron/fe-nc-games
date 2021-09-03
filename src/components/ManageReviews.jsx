@@ -3,11 +3,11 @@ import { deleteReviewByReviewId } from '../api.js';
 import { Link } from 'react-router-dom';
 
 const ManageReviews = (props) => {
-    const { signedInUser } = props;
-    const { reviewsList, isLoading } = useReviews();
+    const { signedInUser, username } = props;
+    const { reviewsList, isLoading } = useReviews(null, 1000);
     const thisUsersReviews = reviewsList.filter(review => {
-        return review.owner === signedInUser.username;
-    })
+        return review.owner === username;
+    });
 
     const deleteReview = (review_id) => {
         // console.log('deleteReview starting', `id ${review_id}`)
@@ -29,9 +29,9 @@ const ManageReviews = (props) => {
                         <p>{new Date(review.created_at).toLocaleDateString()}</p>
                         </section>
                         <section className="manageContent-options"> 
-                        <button
+                        { signedInUser.username === username && <button
                             onClick={(() => {deleteReview(review.review_id)})}
-                        >Delete</button>
+                        >Delete</button> }
                         </section>
                     </section>
                 )
