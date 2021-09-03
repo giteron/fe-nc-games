@@ -33,7 +33,7 @@ const Comments = (props) => {
                         <section className="manageContent-options"> 
                         { signedInUser.username === comment.author && <button
                             onClick={() => {deleteComment(comment.comment_id)}}
-                        >Delete</button> }
+                        ><i className="fa fa-trash-o"></i></button> }
                         </section>
                     </section>
                 );

@@ -8,6 +8,10 @@
     color: black;
     text-decoration: none;
   }
+
+  .fa {
+    font-size: 1.25rem;
+  }
   
   .App {
     height:100vh;
@@ -428,8 +432,8 @@
     background-color: crimson;
     border: 1px solid black;
     color: white;
-    width: 50px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     border-radius: 4px;
   }

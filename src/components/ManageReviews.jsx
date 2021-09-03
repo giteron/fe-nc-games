@@ -31,7 +31,7 @@ const ManageReviews = (props) => {
                         <section className="manageContent-options"> 
                         { signedInUser.username === username && <button
                             onClick={(() => {deleteReview(review.review_id)})}
-                        >Delete</button> }
+                        ><i className="fa fa-trash-o"></i></button> }
                         </section>
                     </section>
                 )
