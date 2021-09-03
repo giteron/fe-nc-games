@@ -25,7 +25,7 @@ const MainContent = (props) => {
                     <p className="sidebar">Write a new review here</p>
                 </Route>
                 <Route exact path="/reviews/:review_id">
-                    <SingleReview />
+                    <SingleReview signedInUser={signedInUser}/>
                     <p className="sidebar">This will display a single review</p>
                 </Route>
                 <Route exact path="/reviews">

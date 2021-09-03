@@ -55,6 +55,14 @@ const postReview = async (reviewBody) => {
     return data.review;
 }
 
+const postComment = async (commentBody, review_id) => {
+    const { data } = await gamesApi.post(`/reviews/${review_id}/comments`, 
+    commentBody);
+    console.log('posted')
+    console.log(data);
+    return data;
+}
+
 export { 
     getReviews, 
     getUsers, 
@@ -63,5 +71,6 @@ export {
     getCommentsByReviewId,
     deleteReviewByReviewId,
     patchVotes,
-    postReview
+    postReview,
+    postComment
 };
