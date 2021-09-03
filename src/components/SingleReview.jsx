@@ -42,7 +42,7 @@ const SingleReview = (props) => {
             <li className="commentsSection">
                 <h3>{`Comments: ${singleReview.comment_count}`}</h3>
                 <Expandable>
-                    <Comments review_id={review_id}/>
+                    <Comments review_id={review_id} signedInUser={signedInUser}/>
                 </Expandable>
             </li>
         </div>

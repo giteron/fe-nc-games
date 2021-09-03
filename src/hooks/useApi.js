@@ -94,7 +94,7 @@ export const useComments = (review_id) => {
                 setCommentsList(comments);
                 setIsLoading(false);
             });
-    }, [review_id]);
+    }, [review_id, commentsList]);
 
     return { commentsList, isLoading }
 };

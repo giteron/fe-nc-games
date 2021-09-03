@@ -70,6 +70,14 @@ const getUserByUsername = async (username) => {
     return data.user;
 };
 
+const deleteCommentByCommentId = async (comment_id) => {
+    console.log('deleteCommentByCommentId starting', `id ${comment_id}`)
+    await gamesApi.delete(`/comments/${comment_id}`)
+    .then(() => {
+        console.log('this should have deleted now...')
+    })
+};
+
 export { 
     getReviews, 
     getUsers, 
@@ -80,5 +88,6 @@ export {
     patchVotes,
     postReview,
     postComment,
-    getUserByUsername
+    getUserByUsername,
+    deleteCommentByCommentId
 };
