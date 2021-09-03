@@ -7,7 +7,7 @@ const Expandable = ({ children, buttonName }) => {
   
     return (
       <div>
-        <button onClick={toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
+        <button id="expandable" onClick={toggleOpen}>{isOpen ? 'Close' : 'Open'}</button>
         {isOpen ? children : null}
       </div>
     );
