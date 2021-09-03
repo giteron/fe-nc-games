@@ -66,7 +66,8 @@
     /* border: 5px solid teal; */
     background-color: lightgrey;
     grid-area: navbar;
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     text-align: center;
     /* box-shadow: 0px 0px 10px grey; */
@@ -483,13 +484,14 @@
     
     .NavBar-container{
       padding: 8px;
+      flex-direction: row;
+      justify-content: space-around;
     }
   
     .NavBar-container button {
-      /* float: none; */
-      width: 18%;
+      width: 16vw;
       margin: 0px 0.25rem 0px 0.25rem;
-      padding: 10px 0.25rem 10px 0.25rem;
+      padding: 10px 2% 10px 2%;
     }
   
     .userDetails {
