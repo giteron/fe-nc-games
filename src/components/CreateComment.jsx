@@ -5,7 +5,7 @@ import { postComment } from '../api.js';
 const CreateComment = (props) => {
     const { signedInUser, review_id } = props;
     const [ hasPosted, setHasPosted ] = useState (false);
-    const [ newCommentId, setnewCommentId ] = useState(0);
+    // const [ newCommentId, setnewCommentId ] = useState(0);
     const [ newComment, setNewComment ] = useState({
         username: signedInUser.username,
         body: ''
@@ -16,9 +16,13 @@ const CreateComment = (props) => {
         event.preventDefault();
         setHasPosted(true);
         postComment(newComment, review_id)
-        .then(({comment_id}) => {
-            setnewCommentId(comment_id);
-        });
+        .then(() => {
+            setNewComment({
+                username: signedInUser.username,
+                body: ''
+            });
+            setHasPosted(false);
+        })
     };
 
     const handleInputChange = (event) => {

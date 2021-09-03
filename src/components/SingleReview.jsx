@@ -40,7 +40,7 @@ const SingleReview = (props) => {
             </li>
             <CreateComment signedInUser={signedInUser} review_id={review_id}/>
             <li className="commentsSection">
-                <h3>{`Comments: ${singleReview.comment_count} [+]...`}</h3>
+                <h3>{`Comments: ${singleReview.comment_count}`}</h3>
                 <Expandable>
                     <Comments review_id={review_id}/>
                 </Expandable>
