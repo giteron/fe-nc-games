@@ -61,7 +61,14 @@ const postComment = async (commentBody, review_id) => {
     console.log('posted')
     console.log(data);
     return data;
-}
+};
+
+const getUserByUsername = async (username) => {
+    // console.log(username, '----------- username in AXIOS')
+    const {data} = await gamesApi.get(`/users/${username}`);
+    console.log(data, '----- data')
+    return data.user;
+};
 
 export { 
     getReviews, 
@@ -72,5 +79,6 @@ export {
     deleteReviewByReviewId,
     patchVotes,
     postReview,
-    postComment
+    postComment,
+    getUserByUsername
 };

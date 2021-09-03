@@ -468,6 +468,13 @@
     background-color: lightgrey;
   }
 
+  #accountLink {
+    color: whitesmoke;
+  }
+  #accountLink:hover {
+    text-decoration: underline;
+  }
+
   
   
   @media screen and (max-width: 600px) {

@@ -4,7 +4,8 @@ import {
     getUsers, 
     getCategories, 
     getReviewById, 
-    getCommentsByReviewId
+    getCommentsByReviewId,
+    getUserByUsername
 } from '../api.js';
 
 export const useReviews = (category) => {
@@ -96,6 +97,24 @@ export const useComments = (review_id) => {
     }, [review_id]);
 
     return { commentsList, isLoading }
+};
+
+export const useSingleUser = (username) => {
+
+    const [ singleUser, setSingleUser ] = useState({});
+    const [ isLoading, setIsLoading ] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        getUserByUsername(username)
+            .then((user) => {
+                //  console.log(review, '-----fetched review');
+                setSingleUser(user);
+                setIsLoading(false);
+            });
+    }, [username]);
+
+    return { singleUser, isLoading }
 };
 
 

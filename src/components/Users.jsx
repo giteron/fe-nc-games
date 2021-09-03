@@ -10,7 +10,7 @@ const Users = () => {
             <ul>
                 {usersList.map(user => {
                     return (
-                        <Link to={`/user/${user.username}`} key={user.username} >
+                        <Link to={`/users/${user.username}`} key={user.username} >
                             <li>
                                 <h2>{user.username}</h2>
                             </li>
