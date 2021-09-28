@@ -4,7 +4,7 @@ import { useComments } from '../hooks/useApi.js';
 import Votes from './Votes.jsx';
 
 const Comments = (props) => {
-    const { review_id, signedInUser } = props;
+    const { review_id, signedInUser, comment_count } = props;
     const { commentsList, isLoading, setPage } = useComments(review_id);
 
     const loadMore = () => {
@@ -43,7 +43,10 @@ const Comments = (props) => {
             <section id="loadMore">
             {isLoading ? 
                 <h4>Loading...</h4> :
-                <button onClick={() => loadMore()}>Load more</button>}
+                commentsList.length < comment_count ?
+                <button onClick={() => loadMore()}>Load more</button> :
+                <h4>No more comments</h4>
+            }
             </section>
         </>
     );
