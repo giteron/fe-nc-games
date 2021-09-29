@@ -1,11 +1,13 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useSingleUser } from '../hooks/useApi.js'
+import { UserContext } from '../UserContext.jsx';
 import Expandable from './Expandable.jsx';
 import ManageReviews from './ManageReviews.jsx';
 
-const UserProfile = (props) => {
-    const { signedInUser } = props;
+const UserProfile = () => {
+    const { signedInUser } = useContext(UserContext);
     const { username } = useParams();
     const { singleUser, isLoading } = useSingleUser(username);
 

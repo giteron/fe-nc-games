@@ -1,9 +1,12 @@
 import { useReviews } from '../hooks/useApi.js';
 import { deleteReviewByReviewId } from '../api.js';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../UserContext.jsx';
 
 const ManageReviews = (props) => {
-    const { signedInUser, username } = props;
+    const { username } = props;
+    const { signedInUser } = useContext(UserContext);
     const { reviewsList, isLoading } = useReviews(null, 1000);
     const thisUsersReviews = reviewsList.filter(review => {
         return review.owner === username;
