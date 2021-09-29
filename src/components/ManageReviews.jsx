@@ -7,14 +7,18 @@ import { UserContext } from '../UserContext.jsx';
 const ManageReviews = (props) => {
     const { username } = props;
     const { signedInUser } = useContext(UserContext);
-    const { reviewsList, isLoading } = useReviews(null, 1000);
+    const { reviewsList, setReviewsList, isLoading } = useReviews(null, 1000);
     const thisUsersReviews = reviewsList.filter(review => {
         return review.owner === username;
     });
 
     const deleteReview = (review_id) => {
         // console.log('deleteReview starting', `id ${review_id}`)
-        deleteReviewByReviewId(review_id);
+        deleteReviewByReviewId(review_id)
+        .then(() => {
+            const newList = thisUsersReviews.filter((item) => item.review_id !== review_id);
+            setReviewsList(newList);
+        })
     };
 
     if (isLoading) return <h4>Loading...</h4>

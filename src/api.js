@@ -36,7 +36,7 @@ const getCommentsByReviewId = async (review_id, page, limit = 5) => {
 
 const deleteReviewByReviewId = async (review_id) => {
     console.log('deleteReviewByReviewId starting', `id ${review_id}`)
-    await gamesApi.delete(`/reviews/14`)
+    await gamesApi.delete(`/reviews/${review_id}`)
     .then(() => {
         console.log('this should have deleted now...')
     })

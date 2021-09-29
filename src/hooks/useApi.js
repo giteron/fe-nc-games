@@ -26,7 +26,7 @@ export const useReviews = (category, limit) => {
             });
     }, [setReviewsList, category, page, limit]);
 
-    return { reviewsList, isLoading, setPage, hasMore }
+    return { reviewsList, setReviewsList, isLoading, setPage, hasMore }
 };
 
 export const useUsers = () => {
