@@ -49,7 +49,9 @@ const Comments = (props) => {
                         { signedInUser.username === comment.author && comment.comment_id ? 
                         <button
                             onClick={() => {deleteComment(comment.comment_id)}}
-                        ><i className="fa fa-trash-o"></i></button> : <p>Refresh to delete!</p> }
+                        ><i className="fa fa-trash-o"></i></button> :
+                        signedInUser.username && !comment.comment_id ? <p>Refresh to delete!</p> :
+                        <></> }
                         </section>
                     </section>
                 );
