@@ -43,8 +43,8 @@ const UserAccount = () => {
             <li className="userAccount-quickLinks">
                 <h3>Quick Links</h3>
                 <div id="quickLinks">
-                    <p>Change Username</p>
-                    <p>Change Picture</p>
+                    {/* <p>Change Username</p> */}
+                    {/* <p>Change Picture</p> */}
                     <Link to="/create"><p>New Review</p></Link>
                     <a href="https://be-ncgames-server.herokuapp.com/api" target="_blank" rel="noreferrer"><p>API <span id="forDevs">(for devs)</span></p></a>
                 </div>

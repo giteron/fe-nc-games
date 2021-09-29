@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <div className="Header-container">
-            <p>Header</p>
+            <p>giteron games</p>
         </div>
     );
 };
