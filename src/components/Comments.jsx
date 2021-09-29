@@ -1,13 +1,18 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteCommentByCommentId } from '../api.js';
-import { useComments } from '../hooks/useApi.js';
 import { UserContext } from '../UserContext.jsx';
 import Votes from './Votes.jsx';
 
 const Comments = (props) => {
-    const { review_id, comment_count } = props;
-    const { commentsList, setCommentsList, isLoading, setPage } = useComments(review_id);
+    const {                        
+        comment_count,
+        setCommentCount,
+        commentsList,
+        setCommentsList,
+        isLoading,
+        setPage
+    } = props;
     const { signedInUser } = useContext(UserContext);
 
     const loadMore = () => {
@@ -19,6 +24,7 @@ const Comments = (props) => {
         .then(() => {
             const newList = commentsList.filter((item) => item.comment_id !== comment_id);
             setCommentsList(newList);
+            setCommentCount(currCount => currCount - 1)
         })
     };
 
@@ -33,16 +39,17 @@ const Comments = (props) => {
                              {new Date(comment.created_at).toLocaleDateString()}
                         </p>
                         <p className="oneComment__body">{comment.body}</p>
-                        <Votes 
+                        {comment.comment_id ? <Votes 
                             className="oneComment__votes" 
                             votes={comment.votes} 
                             component_id={comment.comment_id}
                             path="comments"
-                        />
+                        /> : <p>Refresh to vote!</p>}
                         <section className="manageContent-options"> 
-                        { signedInUser.username === comment.author && <button
+                        { signedInUser.username === comment.author && comment.comment_id ? 
+                        <button
                             onClick={() => {deleteComment(comment.comment_id)}}
-                        ><i className="fa fa-trash-o"></i></button> }
+                        ><i className="fa fa-trash-o"></i></button> : <p>Refresh to delete!</p> }
                         </section>
                     </section>
                 );
