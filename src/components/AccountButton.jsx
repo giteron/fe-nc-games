@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
-const AccountButton = (props) => {
-    const { signedInUser } = props;
+const AccountButton = () => {
+    const { signedInUser } = useContext(UserContext);
 
     return (
         <div className="AccountButton-container">

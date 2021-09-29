@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { postComment } from '../api.js';
+import { UserContext } from '../UserContext.jsx';
 
 
 const CreateComment = (props) => {
-    const { signedInUser, review_id } = props;
+    const { review_id } = props;
+    const { signedInUser } = useContext(UserContext);
     const [ hasPosted, setHasPosted ] = useState (false);
     // const [ newCommentId, setnewCommentId ] = useState(0);
     const [ newComment, setNewComment ] = useState({

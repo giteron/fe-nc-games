@@ -6,9 +6,9 @@ import SingleReview from './SingleReview.jsx';
 import CreateReview from './CreateReview.jsx';
 import UserAccount from './UserAccount.jsx';
 import UserProfile from './UserProfile.jsx';
+import SignIn from './SignIn.jsx';
 
 const MainContent = (props) => {
-    const { signedInUser } = props;
 
     return (
         <div className="MainContent-container">
@@ -18,11 +18,11 @@ const MainContent = (props) => {
                     <p className="sidebar">This is the home page</p>
                 </Route>
                 <Route exact path="/create">
-                    <CreateReview signedInUser={signedInUser}/>
+                    <CreateReview />
                     <p className="sidebar">Write a new review here</p>
                 </Route>
                 <Route exact path="/reviews/:review_id">
-                    <SingleReview signedInUser={signedInUser}/>
+                    <SingleReview />
                     <p className="sidebar">This will display a single review</p>
                 </Route>
                 <Route exact path="/reviews">
@@ -38,15 +38,19 @@ const MainContent = (props) => {
                     <p className="sidebar">This will display all users</p>
                 </Route>
                 <Route exact path="/users/:username">
-                    <UserProfile signedInUser={signedInUser} />
+                    <UserProfile  />
                     <p className="sidebar">This will display a single user</p>
                 </Route>
                 <Route exact path="/account">
-                    <UserAccount signedInUser={signedInUser}/>
+                    <UserAccount />
                     <p className="sidebar">This will display the user's account page</p>
                 </Route>
                 <Route exact path="/categories/:category">
                     <Reviews />
+                    <p className="sidebar">This will show all categories</p>
+                </Route>      
+                <Route exact path="/signin">
+                    <SignIn/>
                     <p className="sidebar">This will show all categories</p>
                 </Route>               
             </Switch>

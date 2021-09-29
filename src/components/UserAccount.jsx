@@ -1,13 +1,32 @@
 import { Link } from "react-router-dom";
 import Expandable from "./Expandable";
 import ManageReviews from "./ManageReviews";
+import { Redirect } from 'react-router';
+import { useContext } from "react";
+import { UserContext } from "../UserContext";
 
-const UserAccount = (props) => {
-    const { signedInUser } = props;
+
+const UserAccount = () => {
+    const { signedInUser, setSignedInUser } = useContext(UserContext);
     const firstName = signedInUser.name.split(' ')[0];
+
+    const handleSignOut = () => {
+        setSignedInUser({
+            username: '',
+            avatar_url: '',
+            name: ''
+        });
+    };
+
+    const handleRedirect = () => {
+        if (signedInUser.username === '') {
+            return <Redirect to={`/signin`} />
+        }
+    };
 
     return (
         <div className="MainContent-content">
+            {handleRedirect()}
             <li className="userAccount-card">
                 <div className="userAccount-card__profileBox">
                     <h1>{firstName.endsWith('s') ? 
@@ -19,7 +38,7 @@ const UserAccount = (props) => {
                     <p>Name: <span id="userInfo">{signedInUser.name}</span></p>
                     <p>Username: <span id="userInfo">{signedInUser.username}</span></p>
                 </div>
-                <div id="signOutButton"><button>Sign Out</button></div>
+                <div id="signOutButton"><button onClick={handleSignOut}>Sign Out</button></div>
             </li>
             <li className="userAccount-quickLinks">
                 <h3>Quick Links</h3>

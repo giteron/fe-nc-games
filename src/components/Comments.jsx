@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteCommentByCommentId } from '../api.js';
 import { useComments } from '../hooks/useApi.js';
+import { UserContext } from '../UserContext.jsx';
 import Votes from './Votes.jsx';
 
 const Comments = (props) => {
-    const { review_id, signedInUser, comment_count } = props;
+    const { review_id, comment_count } = props;
     const { commentsList, isLoading, setPage } = useComments(review_id);
+    const { signedInUser } = useContext(UserContext);
 
     const loadMore = () => {
         setPage(currPage => currPage + 1)

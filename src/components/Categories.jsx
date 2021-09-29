@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCategories } from '../hooks/useApi.js';
 
-const Categories = (props) => {
+const Categories = () => {
     const { categoriesList, isLoading } = useCategories();
 
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Redirect } from 'react-router';
 import { postReview } from '../api.js';
 import { useCategories } from '../hooks/useApi.js';
+import { UserContext } from '../UserContext.jsx';
 
-const CreateReview = (props) => {
-    const { signedInUser } = props;
+const CreateReview = () => {
+    const { signedInUser } = useContext(UserContext);
     const { categoriesList, isLoading } = useCategories();
     const [ hasPosted, setHasPosted ] = useState (false);
     const [ newReviewId, setnewReviewId ] = useState(0);

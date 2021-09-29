@@ -1,15 +1,17 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSingleReview } from '../hooks/useApi.js';
+import { UserContext } from '../UserContext.jsx';
 import Comments from './Comments.jsx';
 import CreateComment from './CreateComment.jsx';
 import Expandable from './Expandable.jsx';
 import Votes from './Votes.jsx';
 
-const SingleReview = (props) => {
+const SingleReview = () => {
     const { review_id } = useParams();
     const { singleReview, isLoading } = useSingleReview(review_id);
-    const { signedInUser } = props;
+    const { signedInUser } = useContext(UserContext);
     
     // console.log(review_id, '------- this is the review ID')
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
