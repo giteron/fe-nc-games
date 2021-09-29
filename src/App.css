@@ -551,6 +551,10 @@
       'main-content main-content'
       'navbar navbar';
     }
+
+    .Header-container p {
+      font-size: 100%;
+    }
     
     .NavBar-container{
       padding: 8px;
