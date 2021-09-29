@@ -7,7 +7,7 @@ import Votes from './Votes.jsx';
 
 const Comments = (props) => {
     const { review_id, comment_count } = props;
-    const { commentsList, isLoading, setPage } = useComments(review_id);
+    const { commentsList, setCommentsList, isLoading, setPage } = useComments(review_id);
     const { signedInUser } = useContext(UserContext);
 
     const loadMore = () => {
@@ -16,6 +16,10 @@ const Comments = (props) => {
 
     const deleteComment = (comment_id) => {
         deleteCommentByCommentId(comment_id)
+        .then(() => {
+            const newList = commentsList.filter((item) => item.comment_id !== comment_id);
+            setCommentsList(newList);
+        })
     };
 
     return (
