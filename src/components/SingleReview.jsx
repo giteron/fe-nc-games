@@ -1,17 +1,12 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSingleReview } from '../hooks/useApi.js';
-import { UserContext } from '../UserContext.jsx';
-import Comments from './Comments.jsx';
-import CreateComment from './CreateComment.jsx';
-import Expandable from './Expandable.jsx';
+import CommentSection from './CommentSection.jsx';
 import Votes from './Votes.jsx';
 
 const SingleReview = () => {
     const { review_id } = useParams();
     const { singleReview, isLoading } = useSingleReview(review_id);
-    const { signedInUser } = useContext(UserContext);
     
     // console.log(review_id, '------- this is the review ID')
     if (isLoading) return <h2 className="MainContent-content">Loading...</h2>
@@ -40,13 +35,14 @@ const SingleReview = () => {
                 <img className="singleReview-card__img" src={singleReview.review_img_url} alt={singleReview.title}/>
                 <p>{singleReview.review_body}</p>
             </li>
-            <CreateComment signedInUser={signedInUser} review_id={review_id}/>
+            <CommentSection review_id={review_id} comment_count={singleReview.comment_count} />
+            {/* <CreateComment review_id={review_id}/>
             <li className="commentsSection">
                 <h3>{`Comments: ${singleReview.comment_count}`}</h3>
                 <Expandable>
-                    <Comments review_id={review_id} signedInUser={signedInUser} comment_count={singleReview.comment_count}/>
+                    <Comments review_id={review_id} comment_count={singleReview.comment_count}/>
                 </Expandable>
-            </li>
+            </li> */}
         </div>
     );
 };
