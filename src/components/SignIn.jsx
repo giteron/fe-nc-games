@@ -25,15 +25,15 @@ const SignIn = () => {
     };
 
     return (
-        <div className="MainContent-container">
+        <div className="MainContent-content">
             {handleRedirect()}
-            {isLoading && <h2 className="MainContent-content">Loading...</h2>}
-            <div className="MainContent-content">
+            {isLoading ? <h2 id="reviewsTitle">Loading...</h2> : <h2 id="reviewsTitle">Who do you want to be today?</h2>}
+            <div>
                 <ul>
                     {usersList.map(user => {
                         return (
-                            <li key={user.username}>
-                                <button onClick={() => handleSignIn(user)}>{user.username}</button>
+                            <li className="loginLi">
+                                <button key={user.username} className="loginButton" onClick={() => handleSignIn(user)}>Log in as {user.username}</button>
                             </li>
                         );
                     })}

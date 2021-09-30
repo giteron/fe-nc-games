@@ -13,7 +13,7 @@ const UserAccount = () => {
     const handleSignOut = () => {
         setSignedInUser({
             username: '',
-            avatar_url: '',
+            avatar_url: 'https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png',
             name: ''
         });
     };
