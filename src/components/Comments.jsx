@@ -35,21 +35,23 @@ const Comments = (props) => {
                 return (
                     <section className="oneComment" key={comment.comment_id}>
                         <p className="oneComment__nameDate">
-                            <Link to={`/users/${comment.author}`}>{comment.author}</Link>
+                            <Link to={`/users/${comment.author}`}>{comment.author}</Link><br></br>
                              {new Date(comment.created_at).toLocaleDateString()}
                         </p>
                         <p className="oneComment__body">{comment.body}</p>
-                        {comment.comment_id ? <Votes 
-                            className="oneComment__votes" 
+                        {comment.comment_id ? <div className="oneComment__votes" ><Votes 
+                            
                             votes={comment.votes} 
                             component_id={comment.comment_id}
                             path="comments"
-                        /> : <p>Refresh to vote!</p>}
+                        /></div> : <p>Refresh to vote!</p>}
                         <section className="manageContent-options"> 
                         { signedInUser.username === comment.author && comment.comment_id ? 
                         <button
                             onClick={() => {deleteComment(comment.comment_id)}}
-                        ><i className="fa fa-trash-o"></i></button> : <p>Refresh to delete!</p> }
+                        ><i className="fa fa-trash-o"></i></button> :
+                        signedInUser.username && !comment.comment_id ? <p>Refresh to delete!</p> :
+                        <></> }
                         </section>
                     </section>
                 );

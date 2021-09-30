@@ -12,7 +12,7 @@ export const useReviews = (category, limit) => {
     const [ reviewsList, setReviewsList ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ page, setPage ] = useState(1);
-    // const [ totalReviews, setTotalReviews ] = useState(0);
+    const [ totalReviews, setTotalReviews ] = useState(0);
     const [ hasMore, setHasMore ] = useState(false);
 
     useEffect(() => {
@@ -20,13 +20,13 @@ export const useReviews = (category, limit) => {
         getReviews(page, category, limit)
             .then((data) => {
                 setReviewsList(currList => [...currList, ...data.reviews]);
-                // setTotalReviews(data.total_count)
+                setTotalReviews(data.total_count)
                 setHasMore(data.total_count > reviewsList.length + 8)
                 setIsLoading(false);
             });
     }, [setReviewsList, category, page, limit]);
 
-    return { reviewsList, setReviewsList, isLoading, setPage, hasMore }
+    return { reviewsList, totalReviews, setReviewsList, isLoading, setPage, hasMore }
 };
 
 export const useUsers = () => {
