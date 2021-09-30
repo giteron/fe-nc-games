@@ -4,7 +4,6 @@ import { patchVotes } from '../api.js';
 const Votes = (props) => {
     const { votes, component_id, path } = props;
     const [voteChange, setVoteChange] = useState(0);
-    const [ hasVotedUp, setHasVotedUp ] = useState(false);
     const [ currentVotes, setCurrentVotes ] = useState(0);
 
     const incrementVotes = () => {
