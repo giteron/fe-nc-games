@@ -7,6 +7,7 @@ import CreateReview from './CreateReview.jsx';
 import UserAccount from './UserAccount.jsx';
 import UserProfile from './UserProfile.jsx';
 import SignIn from './SignIn.jsx';
+import RandomReview from './RandomReview.jsx';
 
 const MainContent = (props) => {
 
@@ -15,6 +16,7 @@ const MainContent = (props) => {
             {/* <p className="MainContent-content">MainContent</p> */}
             <Switch>
                 <Route exact path="/">
+                    <RandomReview />
                     <p className="sidebar">This is the home page</p>
                 </Route>
                 <Route exact path="/create">
