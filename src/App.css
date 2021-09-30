@@ -135,7 +135,7 @@
   }
   
   .sidebar {
-    /* border: 5px solid blue; */
+    border: 5px solid blue;
     grid-area: sidebar;
     min-width: 250px;
     max-width: 450px;
@@ -567,6 +567,35 @@
     color: rgb(114, 114, 114);
     border-radius: 6px;
   }
+
+  .userSpotlight-card {
+    list-style: none;
+    display: grid;
+    grid-template-areas: 'header header' 'info pic';
+    grid-template-columns: 70% 30%;
+  }
+  .userSpotlight-card h3 {
+    grid-area: header;
+    margin-bottom: 10px;
+  }
+  #userSpotlight-img {
+    grid-area: pic;
+    text-align: center;
+  }
+  .userSpotlight-card img {
+    /* width:100%; */
+    max-width: 80px;
+  }
+  #spotlightDetails {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    margin-left: 3%;
+  }
+
+
   
   @media screen and (max-width: 600px) {
     .App {
