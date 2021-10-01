@@ -6,7 +6,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <h4 id="reviewsTitle">Some other cool stuff</h4>
             <UserSpotlight />
-            <TopReviewer />
+            {/* <TopReviewer /> */}
         </div>
     );
 };

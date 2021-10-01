@@ -1,10 +1,7 @@
 import { useReviews, useSingleUser } from "../../hooks/useApi";
 
 const TopReviewer = () => {
-    const { reviewsList, isLoading } = useReviews(null, 1000);
-    const justOwners = reviewsList.map(review => review.owner)
-    // console.log(justOwners)
-
+    
     const countReviewsByOwner = (reviews) => {
         const finalTally = {};
         reviews.forEach(owner => {
@@ -12,10 +9,7 @@ const TopReviewer = () => {
         });
         return finalTally;
     };
-
-    const ownersCounts = countReviewsByOwner(justOwners);
-    // console.log(ownersCounts)
-
+    
     const getTopReviewer = (countObj) => {
         const values = Object.values(countObj);
         const max = Math.max.apply(Math, values);
@@ -27,12 +21,24 @@ const TopReviewer = () => {
             };
         };
     };
+    
+    
+    const { reviewsList, isLoading } = useReviews(null, 1000)
+    
+    const justOwners = reviewsList.map(review => review.owner)
+    // console.log(justOwners)
+
+
+    const ownersCounts = countReviewsByOwner(justOwners);
+    // console.log(ownersCounts)
+
 
     const topOwner = getTopReviewer(ownersCounts);
     // const topUsername = Object.keys(topOwner);
-    console.log(topOwner)
+    // console.log(topUsername[0])
 
-    // const { singleUser } = useSingleUser()
+    // const { singleUser } = useSingleUser(topUsername[0])
+    // console.log(singleUser)
     // console.log(Object.keys(topOwner)[0])
     // console.log(topOwnerDetails)
 

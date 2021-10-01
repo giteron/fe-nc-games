@@ -26,7 +26,7 @@ const RandomReview = () => {
                     <span className="singleReview-card__date">{new Date(todaysReview.created_at).toLocaleDateString()}</span>
                 </p>
                 <p>
-                    <span className="singleReview-card__creator">Creator: {todaysReview.designer}</span>
+                    <span className="singleReview-card__creator">Creator: {todaysReview.designer || 'unknown'}</span>
                     <span className="singleReview-card__category">Category: 
                         <Link to={`/categories/${todaysReview.category}`}>
                             {todaysReview.category}
